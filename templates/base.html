@@ -1,0 +1,63 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="es" href="qa-html-language-declarations.es">
+<head>
+    {% block head_content %}{% endblock %}
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="{% static '/ico.ico' %}" type="image/x-icon">
+
+        
+    <link rel="stylesheet" type="text/css" href="{% static '/css/pure-min.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static '/css/grids-responsive-min.css' %}">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <meta name="theme-color" content="#2d3e50">
+    
+        <!-- Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZDBXQZKW0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-VZDBXQZKW0');
+    </script>
+        <!-- End Google Tag Manager -->
+
+</head>
+<body style="background-color: #343e4821;">
+
+    {# Content template Generic #}
+    {% include "nav.html" %}
+        {% block container %}
+        {% endblock %}
+
+
+          
+    {# Footer #}
+    <footer class="footer">
+        <section class="footer--logo">
+        <p>Made with ♡ by Bruno Orozco</p>
+        </section>
+    </footer>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N88ZB9P"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+</body>
+
+</html>

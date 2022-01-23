@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<head>
+    {% block head_content %}
+    <meta http-equiv="refresh" content="4; url={% url 'index' %}#content" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/thanks.css' %}">
+    <title>Thanks!</title>
+    {% endblock %}
+    
+
+</head>
+<body>
+
+{# Sent successfullyt #}
+{% block container %}
+<section>
+    <div>
+        <div class='container'>
+            <div class='animation'>
+            <div class='i-mail'>
+                <div class='mail-anim'></div>
+            </div>
+            <div class='line'></div>
+            <div class='i-success'>
+                <div class='success-anim'></div>
+            </div>
+            </div>
+            <div class='message'>
+                Thank you, your message has been sent successfully.
+            </div>
+        </div>
+    </div>
+      
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<head>
+    {% block head_content %}
+    <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+    <meta property="og:title" content="Contact">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Contact-us">
+    <meta property=”og:site_name” content="Cotact-us now!"/>
+    <title>Contact us</title>
+
+    {% endblock %}
+
+
+</head>
+<body>
+
+{# Content Contact #}
+{% block container %}
+<section>
+    <img class="bk-img" src="{% static 'assets/bk-contact.jpg' %}" alt="">
+    <div id="contact" class="sup-cont ribbon l-box-lrg pure-g">
+        <p style="font-size: 1.1rem;" class="content-head content-head-ribbon">Contact us</p>
+
+        <div style="width: 100%;flex-flow: row-reverse;" class="pure-g">
+            <div style="width: 57%;
+            background-color: #101f2ead;;
+            border-radius: 0.65rem;
+            padding: .85rem;" class="pure-u-1 pure-u-md-2-5">
+                <form class="pure-form pure-form-stacked" method="POST">
+                    {% csrf_token %}
+                    {{ mensaje }}
+                    {{ form }}
+                        <button style="font-size: .7rem;" type="submit" class="pure-button">Send</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}
+
+

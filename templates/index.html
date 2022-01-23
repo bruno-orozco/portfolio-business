@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+<head>
+    {% block head_content %}
+    <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+    <title>Home</title>
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Our organization is pledged to helping eradicate poverty in the third world">
+    <meta property=”og:site_name” content="My business"/>
+    {% endblock %}
+
+</head>
+<body>
+
+{% block container %}
+
+<!-- Header content -->
+<section class="splash-container">
+    <div>
+        <div class="splash">
+            
+                <h1 class="splash-head"><b>My business</b></h1>
+                <p class="splash-subhead">
+                </p>
+                <p>
+                    <a href="{% url 'contact' %}" class="pure-button pure-button-primary">Contact us</a>
+                </p>
+            
+
+        </div>
+    </div>
+</section>
+
+<!-- Section posts -->    
+<section style="width: 100%;" id="content" class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Projects</h2>
+        {# Search project #}
+        <form class="search__space" action="/#content" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input autocomplete="off" type="text" class="form-control" placeholder="Search project" aria-label="search" aria-describedby="button-addon2" name="search" value="{{ request.GET.search }}">
+                <button style="width: 4rem;" class="search btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            </div>
+        </form>
+    
+        {# List projects #}
+        {% for post in projects %}
+        <div style="display: flex; justify-content: center; margin-bottom: 2.25rem;">
+            <div class="card" style="width: 290px;">
+                <img class="card-img-top" src="media/{{ post.photo }}" alt="{{ post.title }}">
+                <div class="card-body">
+                    <h3 class="content-subhead">
+                        {{ post.title }}
+                    </h3>
+                    <p class="blockquote-footer" style="margin-top: 0;">@<cite title="{{ post.author }}">{{ post.author }}</cite></p> 
+                    <p class="card-text" style="margin-bottom: .6rem;">{{ post.description }}</p>
+                    <p class="card-text">{{ post.created|date:"d/m/Y" }}</p>
+                    <a href="projects/{{ post.title }}/" class="btn btn-primary">Read post</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+    
+</section>
+
+{% endblock %}
